@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ip=""
+url=$ip
+working=""
+stage=""
+
+git --work-tree=$working --git-dir=$stage checkout -f
+cd /home/cvalenza/srv
+screen -X -S hugo-server quit
+screen -d -m -S hugo-server hugo server -w --baseURL="http://"$url":1313/" --bind $ip
