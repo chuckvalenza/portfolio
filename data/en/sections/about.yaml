@@ -1,0 +1,58 @@
+# section information
+section:
+  name: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+designation: About me
+# your company information
+#company:
+  #name: N/A
+  #url: "https://www.example.com"
+
+# a summary about you
+summary: "I have spent the last 4 years as a Communications Officer in the
+United States Marine Corps, planning, establishing, securing, and maintaining
+resilient communication architectures which integrate units across a contested
+and ever-changing battlespace. I possess an active Top Secret / SCI security 
+clearance and am currently transitioning into the civilian sector. I am open to
+job opportunities in the fields of Cyber Security, Software Development, and 
+Defense Systems."
+
+# social links
+# use font-awesome for the icons.
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "me@chuckvalenza.com"
+
+- name: Github
+  icon: "fab fa-github"
+  url: "https://www.github.com/chuckvalenza"
+
+- name: Gitlab
+  icon: "fab fa-gitlab"
+  url: "https://forge.shh.ninja/cvalenza"
+
+- name: LinkedIn
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/chuckvalenza"
+
+# resume
+resume: "files/resume.pdf"
+
+# soft skills
+# give the percentage between 50 to 100 with 5 intervals.
+# currently supported colors: blue, yellow, pink, green, sky, orange
+softSkills:
+- name: Leadership
+  percentage: 100
+  color: "#3e6f6b"
+- name: Security
+  percentage: 100
+  color: "#70ac93"
+- name: Development
+  percentage: 100
+  color: "#a6e3cb"

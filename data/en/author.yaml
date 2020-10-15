@@ -1,0 +1,17 @@
+# some information about you
+name: "Chuck Valenza"
+nickname: "Chuck"
+# greeting message before your name. it will default to "Hi! I am" if not provided
+greeting: "Hi, I'm"
+image: "images/avatar.png"
+# give your some contact information. they will be used in the footer
+contactInfo:
+  email: "me@chuckvalenza.com"
+
+# some summary about what you do
+summary:
+  - I am a developer
+  - I am a leader
+  - I am an innovator
+  - I am a hacker
+  - I am a tech enthusiast

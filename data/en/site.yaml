@@ -1,0 +1,11 @@
+# Copyright Notice
+copyright: Copyright © 2020 | Chuck Valenza
+
+# Meta description for your site.  This will help the search engines to find your site.
+description: Landing page for shh.ninja
+
+# specify the list of custom menus that you want to show in the top navbar.
+# they will be separated by a divider from the main menus.
+customMenus:
+- name: gitlab
+  url: https://forge.shh.ninja/cvalenza
