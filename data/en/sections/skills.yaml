@@ -15,17 +15,6 @@ skills:
   Bash. Have worked in group environments utilizing collaboration tools such as
   Trello."
 
-- name: Android
-  fabicon: "fab fa-android"
-  summary: "Capable of writing mobile applications in Java, C++ (NDK), and React
-  Native. You can check out some of my apps on my Gitlab."
-
-- name: Homelab
-  fabicon: "fab fa-server"
-  summary: "I currently run a home server stack called a 'homelab.' I spend a
-  good chunk of my free time using this to deploy new ideas and try new concepts.
-  You can read about it more [here](/posts/homelab.html)."
-
 - name: Operating Systems
   fabicon: "fab fa-linux"
   summary: "Linux user since 2010, using various distributions on my primary
@@ -34,10 +23,21 @@ skills:
   experienced in planning, securing, and managing corporate windows environments
   in DoD Networks."
 
+- name: Homelab
+  fabicon: "fab fa-server"
+  summary: "I currently run a home server stack called a 'homelab.' I spend a
+  good chunk of my free time using this to deploy new ideas and try new concepts.
+  You can read about it more [here](/posts/homelab.html)."
+
 - name: Docker
   fabicon: "fab fa-docker"
   summary: "I dockerize most servers and services I host for the sake of
   portability and rapid disaster recovery."
+
+- name: Android
+  fabicon: "fab fa-android"
+  summary: "Capable of writing mobile applications in Java, C++ (NDK), and React
+  Native. You can check out some of my apps on my Gitlab."
 
 - name: Git
   fabicon: "fab fa-git-alt"
