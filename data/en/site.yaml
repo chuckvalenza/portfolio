@@ -9,3 +9,5 @@ description: Landing page for shh.ninja
 customMenus:
 - name: gitlab
   url: https://forge.shh.ninja/cvalenza
+- name: posts
+  url: /posts/
