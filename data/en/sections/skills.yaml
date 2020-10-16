@@ -27,7 +27,7 @@ skills:
   fabicon: "fas fa-server"
   summary: "I currently run a home server stack called a 'homelab.' I spend a
   good chunk of my free time using this to deploy new ideas and try new concepts.
-  You can read about it more [here](/posts/homelab.html)."
+  You can read about it more [here](posts/servers/homelab/)."
 
 - name: Docker
   fabicon: "fab fa-docker"
