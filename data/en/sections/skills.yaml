@@ -9,7 +9,7 @@ section:
 # skills
 skills:
 - name: Software Development
-  fabicon: "fab fa-laptop-code"
+  fabicon: "fas fa-laptop-code"
   summary: "Capable of writing scalable, testable, and maintainable programs and
   scripts in a variety of languages. Strong in C, C++, Java, Python, Javascript,
   Bash. Have worked in group environments utilizing collaboration tools such as
@@ -24,7 +24,7 @@ skills:
   in DoD Networks."
 
 - name: Homelab
-  fabicon: "fab fa-server"
+  fabicon: "fas fa-server"
   summary: "I currently run a home server stack called a 'homelab.' I spend a
   good chunk of my free time using this to deploy new ideas and try new concepts.
   You can read about it more [here](/posts/homelab.html)."
