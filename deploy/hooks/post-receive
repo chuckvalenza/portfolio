@@ -6,6 +6,9 @@ working=""
 stage=""
 
 git --work-tree=$working --git-dir=$stage checkout -f
-cd /home/cvalenza/srv
+cd $stage
+#rm -r $stage/themes/toha
+#mkdir -p $stage/themes
+#cd $stage/themes && git clone https://github.com/chuckvalenza/toha.git
 screen -X -S hugo-server quit
 screen -d -m -S hugo-server hugo server -w --baseURL="http://"$url":1313/" --bind $ip
