@@ -1,7 +1,7 @@
 ---
 title: "Homelab Overview"
 date: 2020-10-16T20:14:55-07:00
-hero: /images/posts/servers/homelab-overview/homelab.png
+hero: /images/posts/servers/homelab-overview/office.jpg
 description: A brief overview of my homelab
 theme: Toha
 author:
@@ -15,11 +15,24 @@ menu:
     weight: 500
 ---
 
-Below is an image of my lab. From top to bottom, left to right:
+I run a networking lab in my house, fondly coined a 'homelab.'
+
+I stand up a variety of services from time to time when experimenting with new
+software and networking concepts. Services which the lab constantly provides
+to my home are: DNS, SIEM, wireless, file shares, print and scan service, a plex
+server, publicly accessible Gitlab and Nextcloud services, and PoE IP cameras.
+From time-to-time I stand up various virtual machines to experiment with new
+concepts.
+
+## Hardware Summary
+
+{{< vs 3 >}}
 
 {{< img src="/images/posts/servers/homelab-overview/homelab.png" width="900" align="center">}}
 
 {{< vs 3 >}}
+
+Above is an image of my lab. From top to bottom, left to right:
 
 | Item                          | Notes                                                           |
 | ----------------------------- | --------------------------------------------------------------  |
@@ -37,17 +50,6 @@ Below is an image of my lab. From top to bottom, left to right:
 
 I also run a proxmox server on an old desktop machine and a small raspberry pi
 fly-away kit to stand up a vpn tunnel back to my home network.
-
-{{< vs 3 >}}
-
-## Uses
-
-I stand up a variety of services from time to time when experimenting with new
-software and networking concepts. Services which the lab constantly provides
-to my home are: DNS, SIEM, wireless, file shares, print and scan service, a plex
-server, publicly accessible Gitlab and Nextcloud services, and PoE IP cameras.
-From time-to-time I stand up various virtual machines to experiment with new
-concepts.
 
 {{< vs 3 >}}
 
