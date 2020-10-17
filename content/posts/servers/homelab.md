@@ -1,12 +1,12 @@
 ---
 title: "Homelab Overview"
-date: 2020-10-15T22:57:00+07:00
+date: 2020-10-16T20:14:55-07:00
 hero: /images/posts/servers/homelab-overview/homelab.png
 description: A brief overview of my homelab
 theme: Toha
 author:
   name: Chuck Valenza
-  image: /images/avatar.png
+  image: /images/avatar.svg
 menu:
   sidebar:
     name: Homelab Overview
