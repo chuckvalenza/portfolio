@@ -15,7 +15,7 @@ menu:
     weight: 500
 ---
 
-## Server Setup
+## Server setup
 
 Hugo is a static site generator similar to Gatsby, but uses yaml and markdown
 to generate pages. Building the actual site is something you can do as well,
@@ -27,9 +27,11 @@ latest version available through the debian 10 repos is `0.55.6+really0.54.0-1`.
 On debian-based systems, you can check what is available with the following
 command:
 
-```
+```console
 apt-cache policy hugo
 ```
+
+{{< vs 1 >}}
 
 The toha theme had some compilation issues with this version due to some changes
 in Hugo since 0.55. At the time of writing is Arch repos have `v0.76.5` which
@@ -40,7 +42,7 @@ Below is a diagram of the deployment pipeline.
 
 {{< vs 3 >}}
 
-{{< img src="/images/posts/development/hugo/pipeline.png" width="900" align="center">}}
+{{< img src="/images/posts/development/hugo/pipeline.svg" width="1000" align="center">}}
 
 {{< vs 3 >}}
 
@@ -50,24 +52,30 @@ development server.
 
 First, we need to install a few packages on the on the server.
 
+```console
+sudo pacman -S git hugo screen
 ```
-$ sudo pacman -S git hugo screen
-```
+
+{{< vs 1 >}}
 
 Once we do that, have to make two directories. I created a user and set up these
 two folders in the home dir. The `site-repo` directory is where our git repo
 will lie. The other is the staging area where the Hugo dev server will run.
 
-```
+```console
 mkdir site-repo srv
 ```
 
+{{< vs 1 >}}
+
 We need to create the repository on the dev server.
 
-```
+```console
 cd site-repo
 git init --bare
 ```
+
+{{< vs 1 >}}
 
 Hugo can both compile a static site and act as a server. For our dev server,
 we're going to simply spin up Hugo. To do this, we're going to use a git hook.
@@ -80,7 +88,7 @@ and manually restart. To fix this, we'll run the hugo server on every push so
 we can rapidly remediate server crashes. We'll put it in screen too, so we can
 check on the process while it runs.
 
-```
+```bash
 #!/bin/bash
 
 ip=""
@@ -94,7 +102,76 @@ screen -X -S hugo-server quit
 screen -d -m -S hugo-server hugo server -w --baseURL="http://"$url":1313/" --bind $ip
 ```
 
+{{< vs 1 >}}
+
 Insert the IP of the dev server, the name for your staging area (`site-repo` in
 this case) in `stage`, and the directory of the Hugo server files in `srv`. Make
 sure the script is executable with a simple chmod and our server work is done.
+
+## Setting up the project
+
+On your local machine, we'll have to set up our Hugo project. The issue that
+that we're going to run into is that the verison of Hugo on our machine may
+conflict with the version on the server. Now, while it may be perfectly valid
+to install hugo locally, and create the project with the version provided by
+debian, I opted to initiate the project on the server. On the Arch server...
+
+```console
+mkdir tmp
+cd tmp
+hugo new site site -f=yaml
+```
+
+{{< vs 1 >}}
+
+Then simply `scp` that folder down and rename it. Let's cd into that directory
+and connect it to our repo.
+
+```console
+git init
+git remote add dev ssh://<user>@<server-ip>/home/<user>/site-repo
+```
+
+{{< vs 1 >}}
+
+Now we need to add the theme as a submodule. I used my
+[fork](https://github.com/chuckvalenza/toha). From the project directory:
+
+```console
+git submodule add https://github.com/chuckvalenza/toha.git themes/toha
+```
+
+{{< vs 1 >}}
+
+From here, we should be able to make some modifications to the project files
+and make a commit. Follow the instructions on the theme you installed for what
+variables need to be added to the config.yaml and what other files need to be
+modified. For the purpose of this tutorial, we're going to use the example site
+provided with the theme.
+
+```console
+cp themes/toha/exampleSite/* .
+```
+
+Add and commit the project files, then push to the server. If you navigate to
+the server's IP address on port `1313`, you should see our example site running.
+
+Some limitations in this system become apparent when you are mid-commit and not
+ready to publish your work or you have bugs. What I simply do is amend the
+previous commit and force the new push. We don't have to worry about history
+since nobody should be using this repository as their origin. Only one person
+can effectively work on this at a time due to the fact that each force will
+overwrite the other's work.
+
+```console
+git commit --amend && git push dev-srv master --force
+```
+
+{{< vs 3 >}}
+
+{{< img src="/images/posts/development/hugo/pipeline.png" width="900" align="center">}}
+
+{{< vs 3 >}}
+
+
 
