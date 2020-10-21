@@ -2,10 +2,25 @@
 
 ip=""
 url=$ip
+port=""
 srv=""
-stage=""
+repo=""
+theme_repo=""
 
-git --work-tree=$srv --git-dir=$stage checkout -f
+# create all of the files in our Hugo server directory
+git --work-tree=$srv --git-dir=$repo checkout -f
+
+# clone our theme only if required, else update it
+cd $srv/themes/toha
+
+if [ $((`ls -1 $srv/themes/toha | wc -l`)) -eq 0 ]; then
+	git clone $theme_repo .
+else
+	git pull origin master --ff-only
+fi
+
 cd $srv
+
+# kill any existing hugo servers and start the current one
 screen -X -S hugo-server quit
-screen -d -m -S hugo-server hugo server -w --baseURL="http://"$url":1313/" --bind $ip
+screen -d -m -S hugo-server hugo server -w --baseURL="http://"$url":"$port"/" --bind $ip -p $port
