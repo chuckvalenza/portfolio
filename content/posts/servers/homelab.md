@@ -36,6 +36,7 @@ Above is an image of my lab. From top to bottom, left to right:
 
 | Item                          | Notes                                                           |
 | ----------------------------- | --------------------------------------------------------------  |
+| Surfboard SB6190 Modem        | 32x8 DOCSIS 3.0 600Mbps modem                                   |
 | Unifi CloudKey Gen 2+         | Unifi Network Management Service and Unifi Protect              |
 | Dell PowerEdge R210 II        | pfSense Firewall                                                |
 | TP-Link TL-SG108PE            | Powers my Unifi AP and the Unifi CK2                            |
