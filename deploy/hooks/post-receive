@@ -5,22 +5,34 @@ url=$ip
 port=""
 srv=""
 repo=""
-theme_repo=""
+theme_url=""
 
-# create all of the files in our Hugo server directory
-git --work-tree=$srv --git-dir=$repo checkout -f
+#!/bin/bash
+while read oldrev newrev refname
+do
+	# create all of the files in our Hugo server directory
+	branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+	git --work-tree=$srv --git-dir=$repo checkout -f $branch
 
-# clone our theme only if required, else update it
-cd $srv/themes/toha
+	if [ "master" = "$branch" ]; then
+		cd $srv
+		hugo
+		scp -r $srv/public/* eos:/var/www/html/
+	elif [ "dev" = "$branch" ]; then
 
-if [ $((`ls -1 $srv/themes/toha | wc -l`)) -eq 0 ]; then
-	git clone $theme_repo .
-else
-	git pull origin master --ff-only
-fi
+		# clone our theme only if required, else update it
+		cd $srv/themes/toha
 
-cd $srv
+		if [ $((`ls -1 $srv/themes/toha | wc -l`)) -eq 0 ]; then
+			git clone $theme_url .
+		else
+			git pull origin master --ff-only
+		fi
 
-# kill any existing hugo servers and start the current one
-screen -X -S hugo-server quit
-screen -d -m -S hugo-server hugo server -w --baseURL="http://"$url":"$port"/" --bind $ip -p $port
+		cd $srv
+
+		# kill any existing hugo servers and start the current one
+		screen -X -S hugo-server quit
+		screen -d -m -S hugo-server hugo server -w --baseURL="http://"$url":"$port"/" --bind $ip -p $port
+	fi
+done
