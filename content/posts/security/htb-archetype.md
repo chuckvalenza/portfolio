@@ -1,8 +1,8 @@
 ---
 title: "Hack The Box write-up: Archetype"
 date: 2020-10-28T21:34:07-07:00
-hero: /images/posts/servers/network-layout/banner.jpg
-description: A write-up of the Archetype Machine on hackthebox.eu
+hero: /images/posts/security/htb-archetype/banner.svg
+description: A write-up for solving Archetype on hackthebox.eu
 theme: Toha
 author:
   name: Chuck Valenza
