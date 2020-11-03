@@ -20,23 +20,6 @@
   <div class="container pt-5">
     <div class="row text-left">
       <div class="col-md-4 col-sm-12">
-        <h5>{{ i18n "navigation" }}</h5>
-        {{ if $sections }}
-        <ul>
-          {{- range sort $sections "section.weight" }}
-            {{ if and (.section.enable) (.section.showOnNavbar)}}
-              {{ $sectionID := replace (lower .section.name) " " "-"  }}
-              {{ if .section.id }}
-                {{ $sectionID = .section.id }}
-              {{ end }}
-              <li class="nav-item">
-                <a class="smooth-scroll" href="#{{ $sectionID }}">{{ .section.name }}</a>
-              </li>
-            {{ end }}
-          {{- end }}
-        </ul>
-        {{ end }}
-
       </div>
       {{ if $author }}
       <div class="col-md-4 col-sm-12">
