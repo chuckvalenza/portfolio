@@ -15,6 +15,8 @@ menu:
     weight: 500
 ---
 
+This is a write-up for the Archetype box on [hackthebox.eu](https://www.hackthebox.eu/). It's one of the boxes in their "Starting Point" series.
+
 ## Scanning
 
 Scanning finds a few interesting ports
