@@ -420,7 +420,6 @@ Mode                LastWriteTime         Length Name
 
 
 # cat Desktop\user.txt
-3e7b102e78218e935bf3f4951fec21a3
 ```
 
 {{< vs 1 >}}
@@ -509,7 +508,6 @@ C:\Windows\system32>dir C:\Users\Administrator\Desktop
                2 Dir(s)  33,052,995,584 bytes free
 
 C:\Windows\system32>type C:\Users\Administrator\Desktop\root.txt
-b91ccec3305e98240082d4474b848528
 ```
 
 {{< vs 1 >}}
